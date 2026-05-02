@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* LIGHT THEME VARIABLES (Default) */
+  --canvas: #ffffff;
+  --ink: #000000;
+  --text-main: #1a1a1a;
+  --text-muted: #757575;
+  --link-blue: #057dbc;
+  --hairline: #e2e8f0;
+  --nav-bg: #ffffff;
+  --footer-bg: #1a1a1a;
+  --footer-text: #ffffff;
+  --footer-muted: #9ca3af;
+  --footer-border: #374151;
+}
+
+.dark {
+  /* DARK THEME VARIABLES */
+  --canvas: #1a1a1a;
+  --ink: #ffffff;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --link-blue: #38bdf8;
+  --hairline: #4a5568;
+  --nav-bg: #1a1a1a;
+  --footer-bg: #ffffff;
+  --footer-text: #1a1a1a;
+  --footer-muted: #757575;
+  --footer-border: #e2e8f0;
+}
+
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0 !important;
+  /* Enforce square corners */
+}
+
+/* Exception for circular icon buttons */
+.rounded-full {
+  border-radius: 50% !important;
+}
+
+body {
+  background-color: var(--canvas);
+  /* Fallback */
+  font-family: 'Lora', serif;
+  /* Body text */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--canvas);
+  color: var(--text-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+  /* space for utility nav */
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Typography Utility Classes */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-main);
+}
+
+.font-display {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+}
+
+.font-body {
+  font-family: 'Lora', serif;
+}
+
+.font-ui {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Headings */
+h1.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+h2.section-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.kicker {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: var(--text-main);
+}
+
+.deck {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+/* Interactive Elements */
+a,
+button {
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+a.inline-link {
+  color: var(--text-main);
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+a.inline-link:hover {
+  color: var(--link-blue);
+}
+
+.btn-primary {
+  background: var(--canvas);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
+/* Navbar */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 3.5rem;
+  z-index: 100;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+  border: none;
+  transition: color 0.15s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--link-blue);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.theme-toggle:hover {
+  color: var(--link-blue);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Story Tiles / Cards */
+.story-tile {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full-width solo tile — spans both columns of a grid-2 parent */
+.story-tile-full {
+  grid-column: 1 / -1;
+}
+
+.story-tile-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--hairline);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.story-tile-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.story-tile-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--ink);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer * {
+  color: var(--footer-text);
+  transition: color 0.2s ease;
+}
+
+.footer-link {
+  color: var(--footer-text);
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--link-blue);
+}
+
+/* Utility */
+.hairline-divider {
+  border: 0;
+  height: 1px;
+  background: var(--hairline);
+  margin: 2rem 0;
+}
+
+.thick-divider {
+  border: 0;
+  height: 2px;
+  background: var(--ink);
+  margin: 2rem 0;
+}
+
+/* Section Ribbon */
+.section-ribbon {
+  background: var(--ink);
+  color: var(--canvas);
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-ribbon span {
+  color: var(--canvas);
+  margin: 0;
+}
+
+/* Tags */
+.brutalist-tag {
+  border: 1px solid var(--ink);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Horizontal Timeline ─────────────────────────────────── */
+.timeline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 4rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+/* The central horizontal spine */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ink);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Dot on the spine */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--ink);
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+}
+
+/* Wrapper so we can stack the dot + year label */
+.timeline-dot-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+/* Year label that sits on the spine (away from the card) */
+.timeline-year {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Vertical connector from dot to card */
+.timeline-connector {
+  width: 2px;
+  height: 3rem;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+
+/* The content card */
+.timeline-card {
+  border: 1px solid var(--ink);
+  padding: 1rem 1.25rem;
+  width: 90%;
+  background: var(--canvas);
+  transition: background 0.2s;
+}
+
+.timeline-card:hover {
+  background: var(--hairline);
+}
+
+/* ABOVE variant: card → connector → dot (column-reverse) */
+.timeline-item.above {
+  flex-direction: column-reverse;
+}
+
+/* BELOW variant: dot → connector → card */
+.timeline-item.below {
+  flex-direction: column;
+}
+
+.timeline-label {
+  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-muted);
+}
+
+.timeline-school {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-result {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+}
