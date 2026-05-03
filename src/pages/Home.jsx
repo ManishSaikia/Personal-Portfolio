@@ -6,7 +6,7 @@ const Home = ({ setActiveTab }) => {
       <div style={{ marginBottom: '4rem' }}>
         <span className="font-mono kicker">@ Code by মনিষ</span>
         <h1 className="hero-title font-display" style={{ maxWidth: '900px' }}>
-          Code, Eat, Sleep &amp; Repeat
+          Coding Idea's into Reality
         </h1>
         <p className="deck" style={{ maxWidth: '600px' }}>
           Create innovative solutions using modern technologies and AI.

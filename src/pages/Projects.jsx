@@ -10,7 +10,7 @@ const Projects = () => {
     },
     {
       title: "Trading Journal - Playbook",
-      description: "Trading Journal and Guide ( PRESONAL PROJECT )",
+      description: "Trading Journal and Guide ( PERSONAL PROJECT )",
       link: "https://github.com/ManishSaikia/trading-jounalbook",
       image: "/trading-journal.jpg"
     },
@@ -21,7 +21,7 @@ const Projects = () => {
       <div style={{ marginBottom: '4rem' }}>
         <span className="font-mono kicker">ARCHIVE</span>
         <h1 className="hero-title font-display">Welcome to my realm</h1>
-        <p className="deck">Of wild projects and awesome creations.</p>
+        <p className="deck">Projects I have built</p>
       </div>
 
       <div className="section-ribbon">
@@ -32,10 +32,10 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div key={index} className="story-tile">
             <div className="story-tile-img" style={{ height: '300px', overflow: 'hidden' }}>
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: '0.5rem' }}>
