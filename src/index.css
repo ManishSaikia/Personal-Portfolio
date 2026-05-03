@@ -235,6 +235,9 @@ a.inline-link:hover {
 }
 
 @media (max-width: 768px) {
+  .page-container {
+    padding: 1.5rem 1rem;
+  }
 
   .grid-2,
   .grid-3 {

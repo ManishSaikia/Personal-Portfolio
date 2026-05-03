@@ -31,19 +31,19 @@ const Projects = () => {
       <div className="grid-2">
         {projects.map((project, index) => (
           <div key={index} className="story-tile">
-            <div className="story-tile-img" style={{ height: '300px', overflow: 'hidden' }}>
+            <div className="story-tile-img" style={{ overflow: 'hidden' }}>
               <img
                 src={project.image}
                 alt={project.title}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: '0.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: '0.5rem', gap: '1rem' }}>
               <div>
                 <span className="font-mono kicker">{project.description}</span>
                 <h2 className="story-tile-title">{project.title}</h2>
               </div>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="font-mono inline-link" style={{ fontSize: '0.85rem' }}>VIEW ↗</a>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="font-mono inline-link" style={{ fontSize: '0.85rem', whiteSpace: 'nowrap', flexShrink: 0 }}>VIEW ↗</a>
             </div>
           </div>
         ))}
